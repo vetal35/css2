@@ -1,0 +1,171 @@
+/* *****************Планшет********************** */
+
+@media (max-width: 1024px) {
+    /* планшет 
+   768px минимальное значение для планшета   
+   
+   минимальные отступы для ширины контента делаем по 8px с права и лева
+   (768 - 16 ) / 2
+    (в макете по 16px справа и слева)*/
+
+    .center {
+        padding-left: calc(50% - 368px);
+        padding-right: calc(50% - 368px);
+    }
+
+    /* header */
+
+    .header {
+        min-height: 74px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    // .burger__nav {
+    //     top: 115px;
+    // }
+
+    // ********registration content*********
+
+    .registration-content {
+        grid-template-columns: 360px 354px;
+        grid-column-gap: 22px;
+        padding-top: 40px;
+
+        &__left {
+            .input {
+                padding: 12px 15px 16px;
+            }
+
+            .radio-content {
+                margin-top: 31px;
+                margin-bottom: 31px;
+            }
+        }
+
+        &__right {
+
+            .heading {
+                font-size: 16px;
+                line-height: 19px;
+                margin-bottom: 32px;
+            }
+
+            .text {
+                font-size: 16px;
+                line-height: 19px;
+                margin-bottom: 22px;
+            }
+
+            .list{
+                gap: 24px;
+
+                &__item {
+                    font-size: 16px;
+                    line-height: 19px
+                }
+            }
+       
+        }
+    }
+
+    /* footer */
+
+    /* footer subscribe  */
+
+    .footer-subscribe {
+        justify-content: center;
+        padding-top: 64px;
+        padding-bottom: 140px;
+    }
+
+    .subscribe__subtitle {
+        margin-bottom: 27px;
+    }
+
+    /* footer logo  */
+
+    .footer-logo {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+/* *****************Мобильник********************** */
+
+@media (max-width: 767px) {
+
+    .center {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* header */
+
+    .hide {
+        display: none;
+    }
+
+    /* footer */
+
+    /* footer subscribe  */
+
+    .footer-subscribe {
+        padding-bottom: 110px;
+        gap: 59px;
+
+        &__text {
+            font-size: 18px;
+            line-height: 22px;
+            padding-bottom: 10px;
+
+        }
+
+    }
+
+    .subscribe__title {
+        line-height: 37px;
+    }
+
+    .subscribe__subtitle {
+        font-size: 14px;
+        line-height: 21px;
+        margin-bottom: 22px;
+    }
+
+    /* footer logo  */
+
+    .footer-logo {
+        flex-direction: column-reverse;
+        gap: 40px;
+        padding: 43px 62px 9px;
+
+    }
+
+}
+
+
+
+/* *****************Мобильник 320 ********************* */
+
+
+@media (max-width: 374px) {
+
+    .center {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    /* header */
+
+    .hide {
+        display: none;
+    }
+
+    /* footer subscribe  */
+
+    .footer-subscribe {
+        padding-bottom: 81px;
+
+    }
+}

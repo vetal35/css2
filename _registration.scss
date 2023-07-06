@@ -1,0 +1,279 @@
+@import 'vars';
+@import 'mixins';
+
+//*************header*************
+
+
+//*********registration top**********
+
+.registration-top {
+    background: #F8F3F4;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__title {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 29px;
+        color: $mainColorOfSite;
+    }
+
+
+}
+
+
+// ********registration content*********
+
+.registration-content {
+    display: grid;
+    grid-template-columns: 360px 652px;
+    grid-template-rows: 1fr;
+    grid-column-gap: 128px;
+    padding-top: 64px;
+    padding-bottom: 96px;
+
+
+    // *****registration content left*****
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+
+        .heading {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 19px;
+            color: $darkColorOfSite;
+            margin-bottom: 20px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 21px;
+        }
+
+        .input {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 13px;
+            line-height: 16px;
+            color: $darkColorOfSite;
+            border: 1px solid $secondSemiDarkColorofSite;
+            background: $lightColorOfSite;
+            padding: 13px 17px 16px;
+            box-sizing: border-box;
+
+            &::placeholder {
+                color: #B1B1B1;
+            }
+
+            &:focus {
+                outline: none !important;
+                border: 1px solid $mainColorOfSite;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.13);
+                @include transition-slow();
+            }
+        }
+
+        .radio-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 20px;
+            margin-top: 33px;
+            margin-bottom: 33px;
+        }
+
+        .custom-radio {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        /* для элемента label связанного с .custom-radio */
+        .custom-radio+label {
+            display: inline-flex;
+            align-items: center;
+            user-select: none;
+        }
+
+        /* создание в label псевдоэлемента  before со следующими стилями */
+        .custom-radio+label::before {
+            content: '';
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            flex-shrink: 0;
+            flex-grow: 0;
+            border: 1px solid #A4A4A4;
+            border-radius: 50%;
+            margin-right: 0.6rem;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 50% 50%;
+            @include transition-fast();
+        }
+
+        /* стили при наведении курсора на радио */
+        .custom-radio:not(:disabled):not(:checked)+label:hover::before {
+            border-color: $mainColorOfSite;
+        }
+
+        /* стили для активной радиокнопки (при нажатии на неё) */
+        .custom-radio:not(:disabled):active+label::before {
+            background-color: $mainColorOfSite;
+            border-color: $mainColorOfSite;
+        }
+
+        /* стили для радиокнопки, находящейся в фокусе */
+        .custom-radio:focus+label::before {
+            box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.13);
+           
+        }
+
+        /* стили для радиокнопки, находящейся в фокусе и не находящейся в состоянии checked */
+        .custom-radio:focus:not(:checked)+label::before {
+            border-color: $mainColorOfSite;
+            @include transition-slow();
+        }
+
+        /* стили для радиокнопки, находящейся в состоянии checked */
+        .custom-radio:checked+label::before {
+            border-color: #A4A4A4;
+            background-color: #E5E5E5;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+        }
+
+        /* стили для радиокнопки, находящейся в состоянии disabled */
+        .custom-radio:disabled+label::before {
+            background-color:#E5E5E5;
+        }
+
+        .label-text{
+            font-style: normal;
+            font-weight: 300;
+            font-size: 11px;
+            line-height: 13px;            
+            color: $thirdDarkColorOfSite;
+        }
+
+        .text {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 13px;
+            line-height: 16px;
+            color: #B1B1B1;
+            margin-top: 15px;
+            margin-bottom: 39px;
+        }
+
+    }
+
+    &__button-box {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+
+    &__button {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        color: $lightColorOfSite;
+        background: $mainColorOfSite;
+        border: 1px solid rgba(0, 0, 0, 0);
+        padding: 16px 24px 17px;
+        box-sizing: border-box;
+        cursor: pointer;
+        @include transition-fast();
+
+        &:hover {
+            color: $mainColorOfSite;
+            background: $lightColorOfSite;
+            border: 1px solid $mainColorOfSite;
+            @include transition-slow();
+        }
+
+        &:hover path {
+            fill: $mainColorOfSite;
+        }
+
+        &:focus {
+            outline: none !important;
+        }
+
+        .btn-arrow {
+            margin-left: 20px;
+        }
+
+    }
+
+    // *****registration content right*****
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+
+        .heading {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 24px;
+            line-height: 29px;
+            color: $darkColorOfSite;
+            margin-bottom: 22px;
+        }
+
+        .text {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 24px;
+            line-height: 29px;
+            color: $thirdDarkColorOfSite;
+            margin-bottom: 21px;
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            gap: 16px;
+            /* Отступ слева в браузере IE и Opera */
+            margin-left: 0;
+            /* Отступ слева в браузере Firefox, Safari, Chrome */
+            padding-left: 27px;
+            
+
+            &__item {
+                font-style: normal;
+                font-weight: 300;
+                font-size: 24px;
+                line-height: 29px;
+                color: $thirdDarkColorOfSite;
+                /* Убираем маркеры */
+                list-style-image: url(img/check-mark.svg);
+                padding-left: 22px;
+                
+
+                // &::before {
+                //     content: url(img/check-mark.svg);
+                //     margin-right: 22px;
+                // }
+            }
+        }
+    }
+}
+
+
+// **************footer*************************
+
+@import 'registration-media';
